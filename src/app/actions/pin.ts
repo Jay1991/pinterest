@@ -26,7 +26,6 @@ export const ActionTypes = {
   SAVE_PIN_SUCCESS:             type('[Pins] Save Pin Success'),
   DELETE_PIN:                   type('[Pins] Delete Pin'),
   DELETE_PIN_SUCCESS:           type('[Pins] Delete Pin Success'),
-  SEARCH_PIN:                   type('[Pins] Add Search Tag')
 };
 
 
@@ -40,7 +39,7 @@ export const ActionTypes = {
 export class GetPinsAction implements Action {
   type = ActionTypes.GET_PINS;
 
-  constructor(public payload?: string) { };
+  constructor() { };
 }
 
 export class GetPinsSuccessAction implements Action {
@@ -103,12 +102,6 @@ export class DeletePinSuccessAction implements Action {
   constructor(public payload: string){};
 }
 
-export class SearchPinAction implements Action {
-  type = ActionTypes.SEARCH_PIN
-
-  constructor(public payload: string){};
-}
-
 /**
  * Export a type alias of all actions in this action group
  * so that reducers can easily compose action types
@@ -125,4 +118,3 @@ export type Actions
   | SavePinSuccessAction
   | DeletePinAction
   | DeletePinSuccessAction
-  | SearchPinAction

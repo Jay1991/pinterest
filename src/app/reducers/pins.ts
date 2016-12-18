@@ -9,14 +9,12 @@ export interface State {
   ids: string[];
   entities: { [id: string]: Pin };
   selectedPinId: string;
-  search_tags: string;
 }
 
 const initialState: State = {
   ids: [],
   entities: {},
-  selectedPinId: null,
-  search_tags: null
+  selectedPinId: null
 };
 
 export function reducer(state = initialState, action: pin.Actions): State {
@@ -91,14 +89,6 @@ export function reducer(state = initialState, action: pin.Actions): State {
       })
     }
 
-    case pin.ActionTypes.SEARCH_PIN: {
-      return Object.assign({}, state, {
-        search_tags: action.payload,
-        ids: [],
-        entities: {}
-      })
-    }
-
     default: {
       return state;
     }
@@ -120,8 +110,6 @@ export const getEntities = (state: State) => state.entities;
 export const getIds = (state: State) => state.ids;
 
 export const getSelectedId = (state: State) => state.selectedPinId;
-
-export const getSearchTags = (state: State) => state.search_tags;
 
 export const getSelected = createSelector(getEntities, getSelectedId, (entities, selectedId) => {
   return entities[selectedId];

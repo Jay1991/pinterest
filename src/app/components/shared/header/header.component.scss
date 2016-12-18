@@ -39,20 +39,27 @@ input{
   color: rgb(123, 120, 126);
 }
 
+.fa-search{
+  display: table-cell;
+  background-color: transparent;
+  border: none;
+}
+
 .top-bar-search-label{
   background-color: transparent;
   border: none;
 }
 
 .avatar{
-  width: 50%;
+  width: 80%;
   border-radius: 99px;
+  margin: -40px 0;
 }
 
-.fa-thumb-tack{
+.fa-plus{
   color: rgb(123, 120, 126);
   top: -28px;
-  right: -70px;
+  right: -34px;
   position: relative;
 }
 

@@ -91,43 +91,14 @@
 }
 
 .background-masker.paragraph1-bottom{
-  top: 148px;
+  top: 165px;
+  left: 0;
   right: 0;
-  height: 9px;
-  width: 60%;
+  height: 6px;
 }
 
 .background-masker.paragraph2-bottom{
-  top: 157px;
-  left: 0;
-  right: 0;
-  height: 6px;
-}
-
-
-.background-masker.paragraph3-bottom{
-  top: 163px;
-  right: 0;
-  height: 9px;
-  width: 40%;
-}
-
-.background-masker.paragraph4-bottom{
-  top: 172px;
-  left: 0;
-  right: 0;
-  height: 6px;
-}
-
-.background-masker.paragraph5-bottom{
-  top: 178px;
-  right: 0;
-  height: 9px;
-  width: 47%;
-}
-
-.background-masker.paragraph6-bottom{
-  top: 187px;
+  top: 182px;
   left: 0;
   right: 0;
   height: 6px;

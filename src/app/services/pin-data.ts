@@ -8,36 +8,21 @@ import { Comment } from '../models/comment';
 import { environment } from '../../environments/environment';
 import { ApiUrl } from '../app.api-url';
 import { HttpService } from './http';
-import { AppState, getPinscountWithSeatchQuery } from '../reducers/index';
-import { Store } from '@ngrx/store';
 
 @Injectable()
 export class PinDataService {
   PinState: Observable<fromPins.State>;
   pinsOffset: number = 0;
-  searchQuery: string;
 
   constructor(
     public db: AngularFireDatabase,
-    public http: HttpService,
-    public store: Store<AppState>
+    public http: HttpService
   ) {
-    this.store.select(getPinscountWithSeatchQuery()).subscribe(
-      params => {
-      this.pinsOffset = params.offset;
-      this.searchQuery = params.query;
-    });
   };
 
   getPins(): Observable<Pin[]> {
-    let query = `pins?limit=20&offset=${this.pinsOffset}`;
-
-    if(this.searchQuery && this.searchQuery.length) {
-      query += `&tags=${this.searchQuery}`
-    }
-
     return this
-      .http.get(query)
+      .http.get(`pins?limit=20&offset=${this.pinsOffset}`)
       .map(res => res.json().data)
       .map(pins => {
         this.pinsOffset += pins.length;
